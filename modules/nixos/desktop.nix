@@ -80,6 +80,7 @@ in
     btrfs-progs
     clang
     curl
+    gh
     cpufrequtils
     glib
     gsettings-qt
