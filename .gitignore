@@ -1,0 +1,22 @@
+# Local secrets and overrides
+local-config.nix
+local-variables.nix
+
+# Nix build outputs & direnv
+result
+result-*
+.direnv/
+.nix-node/
+
+# Editor & temporary files
+*.save
+*.bak
+*.swp
+*.tmp
+*~
+.DS_Store
+.idea/
+.vscode/
+
+# Log files
+*.log

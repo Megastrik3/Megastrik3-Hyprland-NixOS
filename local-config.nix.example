@@ -1,0 +1,9 @@
+# Example local user configuration
+# Copy this file to local-config.nix to set your local username and git details.
+# local-config.nix is ignored by git to keep your personal info private.
+
+{
+  username = "yourusername";
+  gitUsername = "YourName";
+  gitEmail = "your.email@example.com";
+}
