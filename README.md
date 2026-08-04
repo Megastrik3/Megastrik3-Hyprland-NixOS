@@ -61,7 +61,15 @@ Edit `~/.gitconfig.local` with your details:
 
 Home Manager automatically includes `~/.gitconfig.local` into your main Git configuration when built.
 
-### 3. Build & Apply System
+### 3. Generate Hardware Configuration (For New Hardware)
+`hardware.nix` contains machine-specific disk UUIDs, kernel modules, and driver settings. If you are adapting this repository for your own machine, generate your hardware configuration before rebuilding:
+
+```bash
+# Generate hardware configuration for your machine (e.g. centari)
+sudo nixos-generate-config --show-hardware-config > hosts/centari/hardware.nix
+```
+
+### 4. Build & Apply System
 Rebuild your system for the target host (`centari` or `voyager`):
 
 ```bash
