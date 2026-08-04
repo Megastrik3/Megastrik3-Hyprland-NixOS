@@ -61,16 +61,7 @@ Edit `~/.gitconfig.local` with your details:
 
 Home Manager automatically includes `~/.gitconfig.local` into your main Git configuration when built.
 
-### 3. GitHub Authentication (GitHub CLI)
-Authenticate with GitHub CLI so Git can push/pull securely without prompting for passwords:
-
-```bash
-gh auth login
-```
-
-*Note: Home Manager is pre-configured to use `gh` as your Git credential helper (`credential.helper = "gh auth git-credential"`).*
-
-### 4. Build & Apply System
+### 3. Build & Apply System
 Rebuild your system for the target host (`centari` or `voyager`):
 
 ```bash
