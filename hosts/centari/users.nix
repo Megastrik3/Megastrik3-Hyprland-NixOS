@@ -3,7 +3,6 @@
 { pkgs, username, pkgs-cuda, ... }:
 
 let
-  inherit (import ./variables.nix) gitUsername;
   hyprlandScripts = import ./scripts { inherit pkgs; };
   hyprlandUserScripts = import ./userscripts { inherit pkgs; };
 in
@@ -15,7 +14,7 @@ in
       isNormalUser = true;
       initialPassword = "nixos";
       shell = pkgs.zsh;
-      description = "${gitUsername}";
+      description = "Primary User Account";
       extraGroups = [
         "networkmanager"
         "wheel"

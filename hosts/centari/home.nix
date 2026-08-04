@@ -3,6 +3,7 @@
 {
   imports = [
     ../../modules/home-manager/programs/common-apps.nix
+    ../../modules/home-manager/programs/git.nix
     ../../modules/home-manager/programs/zsh.nix
     ../../modules/home-manager/programs/kitty.nix
     ../../modules/home-manager/programs/btop.nix
