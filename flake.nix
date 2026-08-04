@@ -28,10 +28,7 @@
     inputs@{ self, nixpkgs, home-manager, ... }:
     let
       system = "x86_64-linux";
-      localConfig = if builtins.pathExists ./local-config.nix
-                    then import ./local-config.nix
-                    else {};
-      username = localConfig.username or "user";
+      username = "hudsonb";
 
       pkgs = import nixpkgs {
         inherit system;

@@ -13,6 +13,7 @@ in
     users."${username}" = {
       homeMode = "755";
       isNormalUser = true;
+      initialPassword = "nixos";
       shell = pkgs.zsh;
       description = "${gitUsername}";
       extraGroups = [
