@@ -2,6 +2,8 @@
 
 A modern, reproducible, and aesthetic **NixOS** & **Hyprland** desktop configuration managed with Nix Flakes, Home Manager, UWSM, and Noctalia Shell.
 
+![Desktop Preview](assets/preview.png)
+
 ---
 
 ## 🌟 Highlights
