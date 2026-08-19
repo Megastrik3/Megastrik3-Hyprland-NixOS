@@ -32,7 +32,7 @@ in
   programs = {
     hyprland = {
       enable = true;
-      withUWSM = false;
+      withUWSM = true;
       portalPackage = pkgs.xdg-desktop-portal-hyprland;
       xwayland.enable = true;
     };
@@ -64,7 +64,7 @@ in
     };
   };
 
-  services.displayManager.defaultSession = "hyprland";
+  services.displayManager.defaultSession = "hyprland-uwsm";
 
   # XDG Portals
   xdg.portal = {

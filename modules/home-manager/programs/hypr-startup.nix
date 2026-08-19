@@ -2,6 +2,7 @@
 {
   wayland.windowManager.hyprland.settings = {
     exec-once = [
+      "uwsm finalize HYPRLAND_INSTANCE_SIGNATURE"
       "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP HYPRLAND_INSTANCE_SIGNATURE"
       "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP HYPRLAND_INSTANCE_SIGNATURE"
       "qs -c overview"

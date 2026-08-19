@@ -2,6 +2,7 @@
 {
   wayland.windowManager.hyprland = {
     enable = true;
+    systemd.enable = false;
     configType = "hyprlang";
     settings = {
     "$configs" = "$HOME/.config/hypr/configs";
@@ -161,6 +162,10 @@
       "enable_anr_dialog" = true;
       "anr_missed_pings" = 15;
       "allow_session_lock_restore" = true;
+    };
+    debug = {
+      "disable_logs" = false;
+      "enable_stdout_logs" = true;
     };
     binds = {
       "workspace_back_and_forth" = true;
