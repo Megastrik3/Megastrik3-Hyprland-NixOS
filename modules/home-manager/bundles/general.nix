@@ -9,7 +9,7 @@
     cowsay
     audacity     
     zoom-us 
-    antigravity
+    antigravity-ide
     openjdk17
     aapt
     usbutils

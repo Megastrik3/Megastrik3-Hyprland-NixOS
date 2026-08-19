@@ -32,10 +32,12 @@ in
   programs = {
     hyprland = {
       enable = true;
-      withUWSM = true;
+      withUWSM = false;
       portalPackage = pkgs.xdg-desktop-portal-hyprland;
       xwayland.enable = true;
     };
+
+    hyprlock.enable = true;
 
     gpu-screen-recorder.enable = true;
     nix-ld.enable = true;
@@ -61,6 +63,8 @@ in
       enableSSHSupport = true;
     };
   };
+
+  services.displayManager.defaultSession = "hyprland";
 
   # XDG Portals
   xdg.portal = {

@@ -13,6 +13,13 @@ final: prev: {
       picosvg = python-prev.picosvg.overridePythonAttrs (oldAttrs: {
         doCheck = false; 
       });
+
+      # Workaround for upstream nanoemoji source hash mismatch
+      nanoemoji = python-prev.nanoemoji.overridePythonAttrs (oldAttrs: {
+        src = oldAttrs.src.overrideAttrs (oldSrc: {
+          outputHash = "sha256-FysyKC01XBnRiur5RR9fcsTxQqE8x0JJHSoe3q6JtKc=";
+        });
+      });
     })
   ];
 

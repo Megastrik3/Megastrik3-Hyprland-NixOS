@@ -14,5 +14,6 @@
     toast
     totem
     asunder
+    mcaselector
   ];
 }

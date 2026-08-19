@@ -109,12 +109,11 @@ in
   # Host Keyboard Console Layout
   console.keyMap = "${keyboardLayout}";
 
+  programs.solaar.enable = true;
+
   # Logitech & Xbox Controller Support
   hardware = {
-    logitech.wireless = {
-      enable = true;
-      enableGraphical = true;
-    };
+    logitech.wireless.enable = true;
     xone.enable = true;
     opentabletdriver = {
       enable = true;

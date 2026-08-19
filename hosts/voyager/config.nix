@@ -87,12 +87,11 @@ in
   # Host Keyboard Console Layout
   console.keyMap = "${keyboardLayout}";
 
+  programs.solaar.enable = true;
+
   # Logitech Support
   hardware = {
-    logitech.wireless = {
-      enable = true;
-      enableGraphical = true;
-    };
+    logitech.wireless.enable = true;
     opentabletdriver = {
       enable = true;
       daemon.enable = true;

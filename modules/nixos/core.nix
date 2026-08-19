@@ -128,8 +128,10 @@
       login.kwallet.enable = true;
       gdm.kwallet.enable = true;
       gdm-password.kwallet.enable = true;
+      sddm.kwallet.enable = true;
       login.enableGnomeKeyring = true;
       gdm-password.enableGnomeKeyring = true;
+      sddm.enableGnomeKeyring = true;
     };
   };
 

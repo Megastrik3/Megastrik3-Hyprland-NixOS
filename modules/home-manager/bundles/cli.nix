@@ -16,5 +16,7 @@
     tmux
     zip
     antigravity-cli
+    ansible
+    kubectl
   ];
 }
