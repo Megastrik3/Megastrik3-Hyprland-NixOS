@@ -62,9 +62,8 @@
       "GSK_RENDERER,ngl"
     ];
     monitor = [
-      #"DP-1,3840x2160@159.98,0x0,1.5"
-      "DP-1,1920x1080@59.94,1920x0,1.0"
-      "HDMI-A-1,1920x1080@59.94,0x0,1.0"
+      "HDMI-A-1,3840x2160@160,0x0,1.5"
+      "DP-1,1920x1080@60,2560x0,1.0"
     ];
     workspace = [
       "special:term, on-created-empty:kitty --class kitty-dropterm, animation:slide top"
