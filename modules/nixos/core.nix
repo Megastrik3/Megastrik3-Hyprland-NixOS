@@ -135,7 +135,8 @@
     };
   };
 
-  # Hardware Features (Bluetooth, Swap, Power)
+  # Hardware Features (Bluetooth, I2C, Swap, Power)
+  hardware.i2c.enable = true;
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = true;

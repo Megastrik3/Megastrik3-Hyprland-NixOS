@@ -29,4 +29,49 @@ final: prev: {
   pkgs-i686-linux = prev.pkgs-i686-linux.override {
     cudaSupport = false;
   };
+
+  # Workaround for Blackmagic Design downloads.json 502 Bad Gateway error
+  davinci-resolve = prev.davinci-resolve.override {
+    runCommandLocal = name: env: text:
+      prev.runCommandLocal name env (
+        builtins.replaceStrings
+          [
+            ''
+            DOWNLOADID=$(
+              curl --silent --compressed "$DOWNLOADSURL" \
+                | jq --raw-output '.downloads[] | .urls.Linux?[]? | select(.downloadTitle | test("^'"$PRODUCT $VERSION"'( Update)?$")) | .downloadId'
+            )''
+          ]
+          [
+            ''
+            DOWNLOADID="651bbe286f4c4544b4ded9b343638f60"
+            if [ "$PRODUCT" = "DaVinci Resolve Studio" ]; then
+              DOWNLOADID="f6af677f3e3741f59a014b54445bd39e"
+            fi''
+          ]
+          text
+      );
+  };
+
+  davinci-resolve-studio = prev.davinci-resolve-studio.override {
+    runCommandLocal = name: env: text:
+      prev.runCommandLocal name env (
+        builtins.replaceStrings
+          [
+            ''
+            DOWNLOADID=$(
+              curl --silent --compressed "$DOWNLOADSURL" \
+                | jq --raw-output '.downloads[] | .urls.Linux?[]? | select(.downloadTitle | test("^'"$PRODUCT $VERSION"'( Update)?$")) | .downloadId'
+            )''
+          ]
+          [
+            ''
+            DOWNLOADID="651bbe286f4c4544b4ded9b343638f60"
+            if [ "$PRODUCT" = "DaVinci Resolve Studio" ]; then
+              DOWNLOADID="f6af677f3e3741f59a014b54445bd39e"
+            fi''
+          ]
+          text
+      );
+  };
 }

@@ -35,6 +35,7 @@
         config = {
           allowUnfree = true;
         };
+        overlays = [ (import ./overlays) ];
       };
 
       # === ADDED ===
@@ -46,6 +47,7 @@
           allowUnfree = true;
           cudaSupport = true;
         };
+        overlays = [ (import ./overlays) ];
       };
       # === END ADDED ===
 

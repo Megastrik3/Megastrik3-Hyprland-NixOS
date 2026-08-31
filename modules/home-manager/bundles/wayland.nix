@@ -2,7 +2,9 @@
 
 {
   home.packages = with pkgs; [
+    argyllcms
     brightnessctl
+    ddcutil
     grim
     hypridle
     hyprpaper

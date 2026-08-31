@@ -15,6 +15,7 @@
     ../../modules/home-manager/programs/hypr-windowrules.nix
     ../../modules/home-manager/programs/hypr-keybinds.nix
     ../../modules/home-manager/programs/hypr-startup.nix
+    ../../modules/home-manager/programs/hyprlock.nix
     ../../modules/home-manager/programs/quickshell-config.nix
     ../../modules/home-manager/programs/swappy-config.nix
     ../../modules/home-manager/programs/rofi-config.nix

@@ -27,7 +27,8 @@ in
         "video" 
         "input" 
         "audio"
-        "adbusers" 
+        "adbusers"
+        "i2c"
       ];
 
     # define user packages here

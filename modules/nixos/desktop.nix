@@ -81,9 +81,11 @@ in
 
   # Base Desktop & Utility System Packages
   environment.systemPackages = (with pkgs; [
+    argyllcms
     btrfs-progs
     clang
     curl
+    ddcutil
     git
     gh
     cpufrequtils

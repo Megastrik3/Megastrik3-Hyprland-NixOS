@@ -8,7 +8,6 @@
       "qs -c overview"
       "wl-paste --type text --watch cliphist store"
       "wl-paste --type image --watch cliphist store"
-      "hypridle &"
       "noctalia-shell &"
       "sleep 3 && bitwarden &"
       "sleep 3 && solaar --battery-icons solaar -w hide &"
