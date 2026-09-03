@@ -82,7 +82,7 @@
                 "Vesktop"
                 "Bitwarden"
                 "dev.deedles.Trayscale"
-                "syncthingtray"
+                # "syncthingtray"
                 "pear-desktop"
               ];
             }
@@ -238,7 +238,7 @@
                     "Vesktop"
                     "Bitwarden"
                     "dev.deedles.Trayscale"
-                    "syncthingtray"
+                    # "syncthingtray"
                     "pear-desktop"
                   ];
                 }

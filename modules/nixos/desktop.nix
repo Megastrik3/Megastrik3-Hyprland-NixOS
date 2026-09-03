@@ -112,7 +112,7 @@ in
     R
     logitech-udev-rules
     opentabletdriver
-    syncthingtray
+    # syncthingtray
     android-tools
   ]) ++ [
     python-packages

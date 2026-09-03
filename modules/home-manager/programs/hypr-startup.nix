@@ -11,7 +11,7 @@
       "noctalia-shell &"
       "sleep 3 && bitwarden &"
       "sleep 3 && solaar --battery-icons solaar -w hide &"
-      "sleep 3 && syncthingtray --wait &"
+      # "sleep 3 && syncthingtray --wait &"
       "sleep 3 && trayscale --hide-window &"
       "sleep 3 && vesktop -m &"
       "sleep 3 && steam -silent &"

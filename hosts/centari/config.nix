@@ -106,6 +106,31 @@ in
   # Host-Specific Services
   services.code-server.enable = true;
 
+  # Syncthing configuration (disabled)
+  # services.syncthing = {
+  #   enable = false;
+  #   dataDir = "/home/hudsonb";    # Default is /var/lib/syncthing
+  #   configDir = "/home/hudsonb/.config/syncthing"; # Optional: Explicitly set config location
+  #   openDefaultPorts = true;
+  #   overrideDevices = false;
+  #   overrideFolders = false;
+  #   guiAddress = "127.0.0.1:8384";
+  #   user = "hudsonb";
+  #   group = "users";
+  #   # Optional: GUI credentials (can be set in the browser instead)
+  #   settings.gui = {
+  #     user = "centari";
+  #     password = "password";
+  #     apikey = "197920b7c60142f1a837ed26dc916c3255c243b90200e0bcec98d6e80683bb4b";
+  #   };
+  #   settings = {
+  #     options.relaysEnabled = false;
+  #     options.urAccepted = -1;
+  #     options.globalAnnounceEnabled = false; # Disables "Global Discovery"
+  #     options.natEnabled = false;            # Disables "Enable NAT Traversal"
+  #   };
+  # };
+
   # Host Keyboard Console Layout
   console.keyMap = "${keyboardLayout}";
 

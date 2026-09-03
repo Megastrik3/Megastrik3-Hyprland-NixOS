@@ -18,5 +18,6 @@
     antigravity-cli
     ansible
     kubectl
+    mutagen
   ];
 }

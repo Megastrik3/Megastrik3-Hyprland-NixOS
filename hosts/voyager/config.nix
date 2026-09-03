@@ -84,6 +84,30 @@ in
   vm.guest-services.enable = false;
   local.hardware-clock.enable = true;
 
+  # Syncthing configuration (disabled)
+  # services.syncthing = {
+  #   enable = false;
+  #   dataDir = "/home/hudsonb";
+  #   configDir = "/home/hudsonb/.config/syncthing";
+  #   openDefaultPorts = true;
+  #   overrideDevices = false;
+  #   overrideFolders = false;
+  #   guiAddress = "127.0.0.1:8384";
+  #   user = "hudsonb";
+  #   group = "users";
+  #   settings.gui = {
+  #     user = "voyager";
+  #     password = "password";
+  #     apikey = "197920b7c60142f1a837ed26dc916c3255c243b90200e0bcec98d6e80683bb4b";
+  #   };
+  #   settings = {
+  #     options.relaysEnabled = false;
+  #     options.urAccepted = -1;
+  #     options.globalAnnounceEnabled = false;
+  #     options.natEnabled = false;
+  #   };
+  # };
+
   # Host Keyboard Console Layout
   console.keyMap = "${keyboardLayout}";
 
