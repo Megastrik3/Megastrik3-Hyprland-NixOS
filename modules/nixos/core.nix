@@ -8,8 +8,14 @@
     settings = {
       auto-optimise-store = true;
       experimental-features = [ "nix-command" "flakes" ];
-      substituters = [ "https://hyprland.cachix.org" ];
-      trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
+      substituters = [
+        "https://hyprland.cachix.org"
+        "https://noctalia.cachix.org"
+      ];
+      trusted-public-keys = [
+        "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+        "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
+      ];
       trusted-users = [ "root" "${username}" ];
       download-buffer-size = 524288000;
     };
@@ -54,6 +60,7 @@
     tumbler.enable = true;
     fwupd.enable = true;
     upower.enable = true;
+    power-profiles-daemon.enable = true;
     openssh.enable = true;
     flatpak.enable = true;
     blueman.enable = true;

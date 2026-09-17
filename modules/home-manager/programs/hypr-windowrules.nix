@@ -132,12 +132,17 @@
       "float on, size (monitor_w*0.28) (monitor_h*0.805), move (monitor_w*0.696) (monitor_h*0.128), workspace special:music"
       "float on, size (monitor_w*0.28) (monitor_h*0.805), move (monitor_w*0.024) (monitor_h*0.128), match:class ^([Bb]itwarden|com\.bitwarden\.desktop)$"
       "float on, size (monitor_w*0.28) (monitor_h*0.805), move (monitor_w*0.024) (monitor_h*0.128), workspace special:bitwarden"
+      "match:class ^(dev.noctalia.Noctalia)$, float on, size 1080 920, center on"
     ];
     layerrule = [
       "match:namespace rofi, blur on"
       "match:namespace notifications, blur on"
       "match:namespace quickshell:overview, blur on"
       "match:namespace quickshell:overview, ignore_alpha 0.5"
+      "match:namespace ^noctalia-(bar-.+|notification|dock|panel|attached-panel|osd|window-switcher)$, blur on"
+      "match:namespace ^noctalia-(bar-.+|notification|dock|panel|attached-panel|osd|window-switcher)$, ignore_alpha 0.5"
+      "match:namespace ^noctalia-(bar-.+|notification|dock|panel|attached-panel|osd|window-switcher)$, no_anim on"
+      "match:namespace ^noctalia-(bar-.+|notification|dock|panel|attached-panel|osd|window-switcher)$, blur_popups on"
     ];
   };
 }

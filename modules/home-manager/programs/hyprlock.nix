@@ -13,8 +13,8 @@
     # Using 'settings' is the preferred Home Manager method
     settings = {
       general = {
-        lock_cmd = "noctalia-shell ipc call lockScreen lock";       # lock noctalia lockscreen
-        before_sleep_cmd = "noctalia-shell ipc call lockScreen lock"; # ensures that the session is locked before going to sleep
+        lock_cmd = "noctalia msg session lock";       # lock noctalia lockscreen
+        before_sleep_cmd = "noctalia msg session lock"; # ensures that the session is locked before going to sleep
         after_sleep_cmd = "hyprctl dispatch dpms on";  # turn on screen after system sleep/resume
         ignore_dbus_inhibit = true;                    # ignore dbus idle-inhibit requests to prevent random software wakeups
       };
@@ -30,7 +30,7 @@
         # Screenlock
         {
           timeout = 600; # 10 min
-          on-timeout = "noctalia-shell ipc call lockScreen lock";
+          on-timeout = "noctalia msg session lock";
         }
         
         # Turn off screen

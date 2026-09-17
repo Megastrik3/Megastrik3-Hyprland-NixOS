@@ -30,48 +30,11 @@ final: prev: {
     cudaSupport = false;
   };
 
-  # Workaround for Blackmagic Design downloads.json 502 Bad Gateway error
+  # Workaround for upstream nixpkgs 21.1 davinci-resolve source hash mismatch
   davinci-resolve = prev.davinci-resolve.override {
     runCommandLocal = name: env: text:
-      prev.runCommandLocal name env (
-        builtins.replaceStrings
-          [
-            ''
-            DOWNLOADID=$(
-              curl --silent --compressed "$DOWNLOADSURL" \
-                | jq --raw-output '.downloads[] | .urls.Linux?[]? | select(.downloadTitle | test("^'"$PRODUCT $VERSION"'( Update)?$")) | .downloadId'
-            )''
-          ]
-          [
-            ''
-            DOWNLOADID="651bbe286f4c4544b4ded9b343638f60"
-            if [ "$PRODUCT" = "DaVinci Resolve Studio" ]; then
-              DOWNLOADID="f6af677f3e3741f59a014b54445bd39e"
-            fi''
-          ]
-          text
-      );
-  };
-
-  davinci-resolve-studio = prev.davinci-resolve-studio.override {
-    runCommandLocal = name: env: text:
-      prev.runCommandLocal name env (
-        builtins.replaceStrings
-          [
-            ''
-            DOWNLOADID=$(
-              curl --silent --compressed "$DOWNLOADSURL" \
-                | jq --raw-output '.downloads[] | .urls.Linux?[]? | select(.downloadTitle | test("^'"$PRODUCT $VERSION"'( Update)?$")) | .downloadId'
-            )''
-          ]
-          [
-            ''
-            DOWNLOADID="651bbe286f4c4544b4ded9b343638f60"
-            if [ "$PRODUCT" = "DaVinci Resolve Studio" ]; then
-              DOWNLOADID="f6af677f3e3741f59a014b54445bd39e"
-            fi''
-          ]
-          text
-      );
+      prev.runCommandLocal name (env // {
+        outputHash = "sha256-+3SB32EHpH9/0hM3h8CrO6f7V4ZAmxUFh3P8m6QDeO0=";
+      }) text;
   };
 }

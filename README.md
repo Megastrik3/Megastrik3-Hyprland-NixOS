@@ -9,7 +9,7 @@ A modern, reproducible, and aesthetic **NixOS** & **Hyprland** desktop configura
 ## 🌟 Highlights
 
 - **Compositor**: [Hyprland](https://hyprland.org) running via **UWSM** (Universal Wayland Session Manager) for systemd user service management.
-- **Desktop Shell**: [Noctalia Shell](https://github.com/noctalia-dev/noctalia) & [Quickshell](https://outfoxxed.me/quickshell) overview & dynamic widget suite.
+- **Desktop Shell**: [Noctalia](https://github.com/noctalia-dev/noctalia) (v5) & [Quickshell](https://outfoxxed.me/quickshell) overview & dynamic widget suite.
 - **GTK Styling**: [Colloid Dark](https://github.com/vinceliuice/Colloid-gtk-theme) theme with custom dark/black tweaks.
 - **Display Manager**: SDDM paired with the Astronaut theme.
 - **Terminal & Shell**: Kitty with Zsh, Oh-My-Zsh, Fastfetch, and FZF integration.

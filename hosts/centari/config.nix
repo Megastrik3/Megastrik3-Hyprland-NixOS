@@ -18,6 +18,7 @@ in
     ../../modules/nixos/intel-drivers.nix
     ../../modules/nixos/vm-guest-services.nix
     ../../modules/nixos/local-hardware-clock.nix
+    ../../modules/nixos/owncloud.nix
     inputs.grub2-themes.nixosModules.default
   ];
 
@@ -105,6 +106,10 @@ in
 
   # Host-Specific Services
   services.code-server.enable = true;
+  services.owncloud-sync = {
+    enable = true;
+    offlineSyncDir = "%h/SSD_Drive/OU_Fall_2026/Course_Data";
+  };
 
   # Syncthing configuration (disabled)
   # services.syncthing = {

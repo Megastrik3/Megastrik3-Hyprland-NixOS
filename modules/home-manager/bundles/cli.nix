@@ -19,5 +19,6 @@
     ansible
     kubectl
     mutagen
+    rclone
   ];
 }

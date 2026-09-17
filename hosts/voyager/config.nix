@@ -18,6 +18,7 @@ in
     ../../modules/nixos/intel-drivers.nix
     ../../modules/nixos/vm-guest-services.nix
     ../../modules/nixos/local-hardware-clock.nix
+    ../../modules/nixos/owncloud.nix
   ];
 
   # Host Identification & Networking

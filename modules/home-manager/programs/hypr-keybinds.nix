@@ -2,7 +2,7 @@
 {
   wayland.windowManager.hyprland.settings = {
     bindd = [
-      "$mainMod, D, all launcher, exec, noctalia-shell ipc call launcher toggle"
+      "$mainMod, D, all launcher, exec, noctalia msg panel-toggle launcher"
       "$mainMod, B, open default browser, exec, xdg-open \"https://\""
       "$mainMod, A, desktop overview, exec, nix-OverviewToggle"
       "$mainMod, Return, Open terminal, exec, $term"
@@ -22,11 +22,11 @@
       "$mainMod SHIFT, Return, DropDown terminal, togglespecialworkspace, term"
       "$mainMod ALT, mouse_down, zoom in, exec, hyprctl keyword cursor:zoom_factor \"$(hyprctl getoption cursor:zoom_factor | awk 'NR==1 {factor = $2; if (factor < 1) {factor = 1}; print factor * 2.0}')\""
       "$mainMod ALT, mouse_up, zoom out, exec, hyprctl keyword cursor:zoom_factor \"$(hyprctl getoption cursor:zoom_factor | awk 'NR==1 {factor = $2; if (factor < 1) {factor = 1}; print factor / 2.0}')\""
-      "$mainMod CTRL ALT, B,toggle bar, exec, noctalia-shell ipc call bar toggle"
+      "$mainMod CTRL ALT, B,toggle bar, exec, noctalia msg bar-toggle"
       "$mainMod SHIFT, M, online music, togglespecialworkspace, music"
       "$mainMod SHIFT, B, bitwarden scratchpad, togglespecialworkspace, bitwarden"
-      "$mainMod, W, select wallpaper, exec, noctalia-shell ipc call wallpaper toggle"
-      "CTRL ALT, W, random wallpaper, exec, noctalia-shell ipc call wallpaper random"
+      "$mainMod, W, select wallpaper, exec, noctalia msg panel-toggle wallpaper"
+      "CTRL ALT, W, random wallpaper, exec, noctalia msg wallpaper-random"
       "$mainMod CTRL, O, toggle active window opacity, exec, hyprctl setprop active opaque toggle"
       "$mainMod SHIFT, K, search keybinds, exec, nix-KeyBinds"
       "$mainMod SHIFT, A, animations menu, exec, $scriptsDir/Animations.sh"
@@ -39,9 +39,9 @@
       "CTRL ALT, Delete, exit Hyprland, exec, hyprctl dispatch exit 0"
       "$mainMod, Q, close active window, killactive,"
       "$mainMod SHIFT, Q, Terminate active process, exec, nix-KillActiveProcess"
-      "CTRL ALT, L, lock screen, exec, noctalia-shell ipc call lockScreen lock"
-      "CTRL ALT, P, powermenu, exec, noctalia-shell ipc call sessionMenu toggle"
-      "$mainMod SHIFT, N, notification panel, exec, noctalia-shell ipc call notifications toggleHistory"
+      "CTRL ALT, L, lock screen, exec, noctalia msg session lock"
+      "CTRL ALT, P, powermenu, exec, noctalia msg panel-toggle session"
+      "$mainMod SHIFT, N, notification panel, exec, noctalia msg panel-toggle control-center notifications"
       "$mainMod SHIFT, E, Quick settings menu, exec, nix-Kool_Quick_Settings"
       "$mainMod CTRL, D, remove master, layoutmsg, removemaster"
       "$mainMod, I, add master, layoutmsg, addmaster"
@@ -135,15 +135,15 @@
       "ALT_L, SHIFT_L, switch keyboard layout globally, exec, nix-SwitchKeyboardLayout"
     ];
     bindeld = [
-      ", xf86audioraisevolume, volume up, exec, noctalia-shell ipc call volume increase"
-      ", xf86audiolowervolume, volume down, exec, noctalia-shell ipc call volume decrease"
+      ", xf86audioraisevolume, volume up, exec, noctalia msg volume-up"
+      ", xf86audiolowervolume, volume down, exec, noctalia msg volume-down"
     ];
     bindld = [
-      ", xf86AudioMicMute, toggle mic mute, exec, noctalia-shell ipc call volume muteInput"
-      ", xf86audiomute, toggle mute, exec, noctalia-shell ipc call volume muteOutput"
-      ", xf86AudioPlay, play, exec, noctalia-shell ipc call media playPause"
-      ", xf86AudioNext, next track, exec, noctalia-shell ipc call media next"
-      ", xf86AudioPrev, previous track, exec, noctalia-shell ipc call media previous"
+      ", xf86AudioMicMute, toggle mic mute, exec, noctalia msg mic-mute"
+      ", xf86audiomute, toggle mute, exec, noctalia msg volume-mute"
+      ", xf86AudioPlay, play, exec, noctalia msg media toggle"
+      ", xf86AudioNext, next track, exec, noctalia msg media next"
+      ", xf86AudioPrev, previous track, exec, noctalia msg media previous"
       ", xf86audiostop, stop, exec, nix-MediaCtrl --stop"
     ];
     binded = [
