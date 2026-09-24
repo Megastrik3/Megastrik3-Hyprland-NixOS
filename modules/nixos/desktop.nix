@@ -64,6 +64,7 @@ in
     };
   };
 
+  services.gnome.gnome-keyring.enable = true;
   services.displayManager.defaultSession = "hyprland-uwsm";
 
   # XDG Portals

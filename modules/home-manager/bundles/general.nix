@@ -23,6 +23,7 @@
     prismlauncher
     bitwarden-desktop
     r2modman
+    gale
     #libreoffice-qt
     hunspell
     texliveSmall
