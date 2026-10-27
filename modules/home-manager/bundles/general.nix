@@ -24,7 +24,8 @@
     bitwarden-desktop
     r2modman
     gale
-    #libreoffice-qt
+    libreoffice-qt
+    hunspellDicts.en_US
     hunspell
     texliveSmall
     gpu-screen-recorder

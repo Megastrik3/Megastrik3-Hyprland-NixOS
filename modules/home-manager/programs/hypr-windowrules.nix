@@ -66,7 +66,11 @@
       "match:class ^([Ww]hatsapp-for-linux|ZapZap|com.rtosta.zapzap)$, center on"
       "match:class ^([Ff]erdium)$, center on"
       "match:title ^(Picture-in-Picture)$, move 72% 7%"
-      "match:fullscreen true, idle_inhibit fullscreen"
+      "match:tag multimedia_video, idle_inhibit fullscreen"
+      "match:tag games, idle_inhibit fullscreen"
+      "match:tag browser, idle_inhibit fullscreen"
+      "match:tag terminal, idle_inhibit none"
+      "match:class ^(Alacritty|kitty|kitty-dropterm)$, idle_inhibit none"
       "match:tag KooL_Cheat, float on"
       "match:tag wallpaper, float on"
       "match:tag settings, float on"
@@ -132,6 +136,9 @@
       "float on, size (monitor_w*0.28) (monitor_h*0.805), move (monitor_w*0.696) (monitor_h*0.128), workspace special:music"
       "float on, size (monitor_w*0.28) (monitor_h*0.805), move (monitor_w*0.024) (monitor_h*0.128), match:class ^([Bb]itwarden|com\.bitwarden\.desktop)$"
       "float on, size (monitor_w*0.28) (monitor_h*0.805), move (monitor_w*0.024) (monitor_h*0.128), workspace special:bitwarden"
+      # --- BROWSER EXTENSIONS ---
+      "float on, size (monitor_w*0.22) (monitor_h*0.65), move (monitor_w*0.765) (monitor_h*0.055), match:class ^(vivaldi.*|[Gg]oogle-chrome.*|[Cc]hromium.*|[Bb]rave-browser.*)$, match:title ^(Bitwarden - (Vivaldi|Google Chrome|Chromium|Brave))$"
+      "float on, size (monitor_w*0.22) (monitor_h*0.65), move (monitor_w*0.765) (monitor_h*0.055), match:class ^(vivaldi.*|[Gg]oogle-chrome.*|[Cc]hromium.*|[Bb]rave-browser.*)$, match:initial_title ^(Bitwarden - (Vivaldi|Google Chrome|Chromium|Brave))$"
       "match:class ^(dev.noctalia.Noctalia)$, float on, size 1080 920, center on"
     ];
     layerrule = [

@@ -145,6 +145,7 @@ in
   hardware = {
     logitech.wireless.enable = true;
     xone.enable = true;
+    xpad-noone.enable = false;
     opentabletdriver = {
       enable = true;
       daemon.enable = true;

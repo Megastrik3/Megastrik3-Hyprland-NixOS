@@ -1,11 +1,14 @@
 { pkgs, inputs, ... }:
 {
+  disabledModules = [ "programs/noctalia" ];
+
   imports = [
     inputs.noctalia.homeModules.default
   ];
 
   programs.noctalia = {
     enable = true;
+    package = pkgs.noctalia;
 
     settings = {
       accessibility = {
@@ -15,9 +18,7 @@
       audio = {
         enable_overdrive = false;
         enable_sounds = false;
-        notification_sound = "";
         sound_volume = 0.5;
-        volume_change_sound = "";
       };
       backdrop = {
         blur_intensity = 0.5;
@@ -28,10 +29,10 @@
         main = {
           auto_hide = false;
           background_opacity = 0.85;
-          border = "outline";
+          border = "outline_variant";
           border_width = 0.0;
           capsule = false;
-          capsule_fill = "surface_variant";
+          capsule_fill = "surface_container";
           capsule_group = [ ];
           capsule_opacity = 1.0;
           capsule_padding = 6.0;
@@ -53,10 +54,10 @@
             "DP-1" = {
               auto_hide = false;
               background_opacity = 0.85;
-              border = "outline";
+              border = "outline_variant";
               border_width = 0.0;
               capsule = false;
-              capsule_fill = "surface_variant";
+              capsule_fill = "surface_container";
               capsule_group = [ ];
               capsule_opacity = 1.0;
               capsule_padding = 6.0;
@@ -226,7 +227,7 @@
         active_scale = 1.0;
         auto_hide = false;
         background_opacity = 0.88;
-        border = "outline";
+        border = "outline_variant";
         border_width = 0.0;
         concave_edge_corners = true;
         cross_axis_padding = 8;
@@ -245,7 +246,6 @@
         main_axis_padding = 16;
         margin_edge = 0;
         margin_ends = 0;
-        monitors = [ ];
         pinned = [ ];
         position = "bottom";
         radius = 16;
@@ -375,7 +375,7 @@
             placement_width = 1920.0;
             rotation = 0.0;
             settings = {
-              background_color = "surface_variant";
+              background_color = "surface_container";
               background_opacity = 0.88;
               background_radius = 12.0;
               center_password_text = false;
@@ -403,7 +403,7 @@
             placement_width = 2560.0;
             rotation = 0.0;
             settings = {
-              background_color = "surface_variant";
+              background_color = "surface_container";
               background_opacity = 0.88;
               background_radius = 12.0;
               center_password_text = false;

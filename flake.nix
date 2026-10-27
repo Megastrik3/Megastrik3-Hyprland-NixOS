@@ -14,7 +14,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     noctalia = {
-      url = "github:noctalia-dev/noctalia/v5.0.1";
+      url = "github:noctalia-dev/noctalia/v5.4.0";
     };
     quickshell = {
       url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
@@ -26,6 +26,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # nixpkgs-r2modman.url = "github:nixos/nixpkgs/1cbe6ab531cb26bfd78a9783f71404d38846ed8c";
+    # Pinned nixpkgs for Zotero due to upstream nixpkgs issue #568692 (broken build with firefox-esr-153)
+    nixpkgs-zotero.url = "github:nixos/nixpkgs/4975466d324710c576dc11ad614684e6bd8cad8e";
   };
 
   outputs =
@@ -39,7 +41,7 @@
         config = {
           allowUnfree = true;
         };
-        overlays = [ (import ./overlays) ];
+        overlays = [ (import ./overlays { inherit inputs; }) ];
       };
 
       # === ADDED ===
@@ -51,7 +53,7 @@
           allowUnfree = true;
           cudaSupport = true;
         };
-        overlays = [ (import ./overlays) ];
+        overlays = [ (import ./overlays { inherit inputs; }) ];
       };
       # === END ADDED ===
 
@@ -78,7 +80,7 @@
 
           # Import the overlays from the new file
           ({ pkgs, ... }: {
-            nixpkgs.overlays = [ (import ./overlays) ];
+            nixpkgs.overlays = [ (import ./overlays { inherit inputs; }) ];
           })
         ];
       };

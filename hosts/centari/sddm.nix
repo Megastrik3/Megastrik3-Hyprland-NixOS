@@ -29,5 +29,11 @@ in {
     };
   };
 
+  # Ensure KWin displays SDDM only on HDMI-A-1 and disables DP-1 during login
+  systemd.services.display-manager.preStart = ''
+    mkdir -p /var/lib/sddm/.config
+    install -m 0644 -o sddm -g sddm ${./kwinoutputconfig.json} /var/lib/sddm/.config/kwinoutputconfig.json
+  '';
+
   environment.systemPackages = [ sddm-astronaut ];
 }
