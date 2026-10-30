@@ -32,6 +32,7 @@ in
   # Host Bootloader & Kernel Configuration
   boot = {
     kernelPackages = pkgs.linuxPackages_zen;
+    kernelModules = [ "nct6775" ];
 
     kernelParams = [
       "systemd.mask=systemd-vconsole-setup.service"

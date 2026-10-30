@@ -80,6 +80,20 @@ let
     hplipWithPlugin = prev.hplipWithPlugin.overrideAttrs (oldAttrs: {
       preFixup = builtins.replaceStrings [ "$makeWrapperArgs" ] [ ''"''${makeWrapperArgs[@]}"'' ] oldAttrs.preFixup;
     });
+
+    # Fix Pyprland scratchpad animations in multi-monitor setups:
+    # Upstream pyprland added an unnecessary extra monitor width/height (+ mon_w / + mon_h) to offscreen coordinates,
+    # which causes scratchpads sliding in on monitor 1 to start far beyond the right edge of adjacent monitor 2
+    # and fly across the entire adjacent display.
+    pyprland = prev.pyprland.overrideAttrs (oldAttrs: {
+      postPatch = (oldAttrs.postPatch or "") + ''
+        substituteInPlace pyprland/plugins/scratchpads/animations.py \
+          --replace-fail 'off_x = mon_x - client_w - mon_w' 'off_x = mon_x - client_w' \
+          --replace-fail 'off_x = mon_x + mon_w + mon_w' 'off_x = mon_x + mon_w' \
+          --replace-fail 'off_y = mon_y - client_h - mon_h' 'off_y = mon_y - client_h' \
+          --replace-fail 'off_y = mon_y + mon_h + mon_h' 'off_y = mon_y + mon_h'
+      '';
+    });
   };
 in
 if builtins.isAttrs inputsOrFinal && inputsOrFinal ? inputs then

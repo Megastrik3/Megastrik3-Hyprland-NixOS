@@ -39,6 +39,7 @@ in
 
     hyprlock.enable = true;
 
+    coolercontrol.enable = true;
     gpu-screen-recorder.enable = true;
     nix-ld.enable = true;
     bcc.enable = true;
@@ -84,12 +85,16 @@ in
   environment.systemPackages = (with pkgs; [
     argyllcms
     btrfs-progs
+    dosfstools
+    e2fsprogs
+    exfatprogs
     clang
     curl
     ddcutil
     git
     gh
     cpufrequtils
+    lm_sensors
     glib
     gsettings-qt
     libappindicator

@@ -66,9 +66,6 @@
       "DP-1,1920x1080@60,2560x0,1.0"
     ];
     workspace = [
-      "special:term, on-created-empty:kitty --class kitty-dropterm, animation:slide top"
-      "special:music, on-created-empty:pear-desktop, animation:slide right"
-      "special:bitwarden, on-created-empty:bitwarden, animation:slide left"
       "1,monitor:HDMI-A-1,default:true"
       "2,monitor:HDMI-A-1"
       "3,monitor:HDMI-A-1"

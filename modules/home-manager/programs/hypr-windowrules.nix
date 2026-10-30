@@ -130,12 +130,10 @@
       "workspace 7, match:tag im*"
       "workspace 9 silent, match:class ^(solaar)$"
       "workspace 9 silent, match:tag multimedia*"
-      # --- SCRATCHPAD DROP-DOWN TERMINAL, MUSIC & BITWARDEN POP-UP ---
-      "float on, size (monitor_w*0.68) (monitor_h*0.42), move (monitor_w*0.16) (monitor_h*0.055), match:class ^(kitty-dropterm)$"
-      "float on, size (monitor_w*0.28) (monitor_h*0.805), move (monitor_w*0.696) (monitor_h*0.128), match:class ^(com\.github\.th[-_]ch\.youtube[-_]music|pear-desktop|[Yy]outube-music)$"
-      "float on, size (monitor_w*0.28) (monitor_h*0.805), move (monitor_w*0.696) (monitor_h*0.128), workspace special:music"
-      "float on, size (monitor_w*0.28) (monitor_h*0.805), move (monitor_w*0.024) (monitor_h*0.128), match:class ^([Bb]itwarden|com\.bitwarden\.desktop)$"
-      "float on, size (monitor_w*0.28) (monitor_h*0.805), move (monitor_w*0.024) (monitor_h*0.128), workspace special:bitwarden"
+      # --- SCRATCHPADS (managed by Pyprland) ---
+      "match:class ^(kitty-dropterm)$, float on"
+      "match:class ^(com\.github\.th[-_]ch\.youtube[-_]music|pear-desktop|[Yy]outube-music)$, float on"
+      "match:class ^([Bb]itwarden|com\.bitwarden\.desktop)$, float on"
       # --- BROWSER EXTENSIONS ---
       "float on, size (monitor_w*0.22) (monitor_h*0.65), move (monitor_w*0.765) (monitor_h*0.055), match:class ^(vivaldi.*|[Gg]oogle-chrome.*|[Cc]hromium.*|[Bb]rave-browser.*)$, match:title ^(Bitwarden - (Vivaldi|Google Chrome|Chromium|Brave))$"
       "float on, size (monitor_w*0.22) (monitor_h*0.65), move (monitor_w*0.765) (monitor_h*0.055), match:class ^(vivaldi.*|[Gg]oogle-chrome.*|[Cc]hromium.*|[Bb]rave-browser.*)$, match:initial_title ^(Bitwarden - (Vivaldi|Google Chrome|Chromium|Brave))$"
