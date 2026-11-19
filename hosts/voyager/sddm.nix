@@ -10,12 +10,24 @@
 in {
   services.displayManager.sddm = {
     enable = true;
-    package = pkgs.kdePackages.sddm; # qt6 sddm version
+
+    # We need the Qt6 version of SDDM for KWin to work best
+    package = pkgs.kdePackages.sddm;
 
     theme = "sddm-astronaut-theme";
-    extraPackages = [sddm-astronaut];
 
-    wayland.enable = true;
+    # Injecting the theme AND core Qt6 dependencies to prevent silent QML rendering crashes
+    extraPackages = with pkgs.kdePackages; [
+      sddm-astronaut
+      qtsvg
+      qtmultimedia
+      qtdeclarative
+    ];
+
+    wayland = {
+      enable = true;
+      compositor = "kwin"; # Forces SDDM to use KWin instead of Weston
+    };
   };
 
   environment.systemPackages = [sddm-astronaut];

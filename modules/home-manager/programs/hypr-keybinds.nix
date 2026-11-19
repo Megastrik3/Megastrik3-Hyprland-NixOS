@@ -1,166 +1,166 @@
 { lib, ... }:
 {
-  wayland.windowManager.hyprland.settings = {
-    bindd = [
-      "$mainMod, D, all launcher, exec, noctalia msg panel-toggle launcher"
-      "$mainMod, B, open default browser, exec, xdg-open \"https://\""
-      "$mainMod, A, desktop overview, exec, nix-OverviewToggle"
-      "$mainMod, Return, Open terminal, exec, $term"
-      "$mainMod, E, file manager, exec, $files"
-      "$mainMod, H, help / cheat sheet, exec, nix-KeyHints"
-      "$mainMod ALT, E, emoji menu, exec, $scriptsDir/RofiEmoji.sh"
-      "$mainMod, S, web search, exec, nix-RofiSearch"
-      "$mainMod CTRL, S, window switcher, exec, rofi -show window"
-      "$mainMod SHIFT, G, toggle game mode, exec, $scriptsDir/GameMode.sh"
-      "$mainMod ALT, L, toggle master/dwindle layout, exec, $scriptsDir/ChangeLayout.sh"
-      "$mainMod ALT, V, clipboard manager, exec, $scriptsDir/ClipManager.sh"
-      "$mainMod CTRL, R, rofi theme selector, exec, nix-RofiThemeSelector"
-      "$mainMod SHIFT, F, fullscreen, fullscreen"
-      "$mainMod CTRL, F, maximize window, fullscreen, 1"
-      "$mainMod, SPACE, Float current window, togglefloating,"
-      "$mainMod ALT, SPACE, Float all windows, exec, hyprctl dispatch workspaceopt allfloat"
-      "$mainMod SHIFT, Return, DropDown terminal, exec, pypr toggle term"
-      "$mainMod ALT, mouse_down, zoom in, exec, hyprctl keyword cursor:zoom_factor \"$(hyprctl getoption cursor:zoom_factor | awk 'NR==1 {factor = $2; if (factor < 1) {factor = 1}; print factor * 2.0}')\""
-      "$mainMod ALT, mouse_up, zoom out, exec, hyprctl keyword cursor:zoom_factor \"$(hyprctl getoption cursor:zoom_factor | awk 'NR==1 {factor = $2; if (factor < 1) {factor = 1}; print factor / 2.0}')\""
-      "$mainMod CTRL ALT, B,toggle bar, exec, noctalia msg bar-toggle"
-      "$mainMod SHIFT, M, online music, exec, pypr toggle music"
-      "$mainMod SHIFT, B, bitwarden scratchpad, exec, pypr toggle bitwarden"
-      "$mainMod, W, select wallpaper, exec, noctalia msg panel-toggle wallpaper"
-      "CTRL ALT, W, random wallpaper, exec, noctalia msg wallpaper-random"
-      "$mainMod CTRL, O, toggle active window opacity, exec, hyprctl setprop active opaque toggle"
-      "$mainMod SHIFT, K, search keybinds, exec, nix-KeyBinds"
-      "$mainMod SHIFT, A, animations menu, exec, $scriptsDir/Animations.sh"
-      "$mainMod SHIFT, O, change oh-my-zsh theme, exec, nix-ZshChangeTheme"
-      "$mainMod ALT, C, calculator, exec, nix-RofiCalc"
-      "$mainMod CTRL, F9, move workspace to left monitor, movecurrentworkspacetomonitor, l"
-      "$mainMod CTRL, F10, move workspace to right monitor, movecurrentworkspacetomonitor, r"
-      "$mainMod CTRL, F11, move workspace to up monitor, movecurrentworkspacetomonitor, u"
-      "$mainMod CTRL, F12, move workspace to down monitor, movecurrentworkspacetomonitor, d"
-      "CTRL ALT, Delete, exit Hyprland, exec, hyprctl dispatch exit 0"
-      "$mainMod, Q, close active window, killactive,"
-      "$mainMod SHIFT, Q, Terminate active process, exec, nix-KillActiveProcess"
-      "CTRL ALT, L, lock screen, exec, noctalia msg session lock"
-      "CTRL ALT, P, powermenu, exec, noctalia msg panel-toggle session"
-      "$mainMod SHIFT, N, notification panel, exec, noctalia msg panel-toggle control-center notifications"
-      "$mainMod SHIFT, E, Quick settings menu, exec, nix-Kool_Quick_Settings"
-      "$mainMod CTRL, D, remove master, layoutmsg, removemaster"
-      "$mainMod, I, add master, layoutmsg, addmaster"
-      "$mainMod CTRL, Return, swap with master, layoutmsg, swapwithmaster"
-     # "$mainMod SHIFT, I, layoutmsg, togglesplit"
-     # "$mainMod, P, layoutmsg, pseudo,"
-      "$mainMod, M, set split ratio 0.3, exec, hyprctl dispatch splitratio 0.3"
-      "ALT, tab, cycle next window, cyclenext"
-      "ALT, tab, bring active to top, bringactivetotop"
-      "$mainMod, Print, screenshot now, exec, nix-ScreenShot --now"
-      "$mainMod SHIFT, Print, screenshot (area), exec, nix-ScreenShot --area"
-      "$mainMod CTRL, Print, screenshot in 5s, exec, nix-ScreenShot --in5"
-      "$mainMod CTRL SHIFT, Print, screenshot in 10s, exec, nix-ScreenShot --in10"
-      "ALT, Print, screenshot active window, exec, nix-ScreenShot --active"
-      "$mainMod SHIFT, S, screenshot (swappy), exec, nix-ScreenShot --swappy"
-      "$mainMod CTRL, left, move window left, movewindow, l"
-      "$mainMod CTRL, right, move window right, movewindow, r"
-      "$mainMod CTRL, up, move window up, movewindow, u"
-      "$mainMod CTRL, down, move window down, movewindow, d"
-      "$mainMod ALT, left, swap window left, swapwindow, l"
-      "$mainMod ALT, right, swap window right, swapwindow, r"
-      "$mainMod ALT, up, swap window up, swapwindow, u"
-      "$mainMod ALT, down, swap window down, swapwindow, d"
-      "$mainMod, G, toggle group, togglegroup"
-      "$mainMod, Tab, Change Group Forward, changegroupactive, f"
-      "$mainMod CTRL, tab, change active in group, changegroupactive"
-      "$mainMod SHIFT, Tab, Change Group Back, changegroupactive, b"
-      "$mainMod CTRL, K, Move left into group, moveintogroup, l"
-      "$mainMod CTRL, L, Move Right into group, moveintogroup, r"
-      "$mainMod CTRL, H, Move active out of group, moveoutofgroup"
-      "$mainMod, left, focus left, movefocus, l"
-      "$mainMod, right, focus right, movefocus, r"
-      "$mainMod, up, focus up, movefocus, u"
-      "$mainMod, down, focus down, movefocus, d"
-      "$mainMod, tab, next workspace, workspace, m+1"
-      "$mainMod SHIFT, tab, previous workspace, workspace, m-1"
-      "$mainMod SHIFT, U, move to special workspace, movetoworkspace, special"
-      "$mainMod, U, toggle special workspace, togglespecialworkspace,"
-      "$mainMod, code:10, workspace 1, workspace, 1"
-      "$mainMod, code:11, workspace 2, workspace, 2"
-      "$mainMod, code:12, workspace 3, workspace, 3"
-      "$mainMod, code:13, workspace 4, workspace, 4"
-      "$mainMod, code:14, workspace 5, workspace, 5"
-      "$mainMod, code:15, workspace 6, workspace, 6"
-      "$mainMod, code:16, workspace 7, workspace, 7"
-      "$mainMod, code:17, workspace 8, workspace, 8"
-      "$mainMod, code:18, workspace 9, workspace, 9"
-      "$mainMod, code:19, workspace 10, workspace, 10"
-      "$mainMod SHIFT, code:10, move to workspace 1, movetoworkspace, 1"
-      "$mainMod SHIFT, code:11, move to workspace 2, movetoworkspace, 2"
-      "$mainMod SHIFT, code:12, move to workspace 3, movetoworkspace, 3"
-      "$mainMod SHIFT, code:13, move to workspace 4, movetoworkspace, 4"
-      "$mainMod SHIFT, code:14, move to workspace 5, movetoworkspace, 5"
-      "$mainMod SHIFT, code:15, move to workspace 6, movetoworkspace, 6"
-      "$mainMod SHIFT, code:16, move to workspace 7, movetoworkspace, 7"
-      "$mainMod SHIFT, code:17, move to workspace 8, movetoworkspace, 8"
-      "$mainMod SHIFT, code:18, move to workspace 9, movetoworkspace, 9"
-      "$mainMod SHIFT, code:19, move to workspace 10, movetoworkspace, 10"
-      "$mainMod SHIFT, bracketleft, move to previous workspace, movetoworkspace, -1"
-      "$mainMod SHIFT, bracketright, move to next workspace, movetoworkspace, +1"
-      "$mainMod CTRL, code:10, move silently to workspace 1, movetoworkspacesilent, 1"
-      "$mainMod CTRL, code:11, move silently to workspace 2, movetoworkspacesilent, 2"
-      "$mainMod CTRL, code:12, move silently to workspace 3, movetoworkspacesilent, 3"
-      "$mainMod CTRL, code:13, move silently to workspace 4, movetoworkspacesilent, 4"
-      "$mainMod CTRL, code:14, move silently to workspace 5, movetoworkspacesilent, 5"
-      "$mainMod CTRL, code:15, move silently to workspace 6, movetoworkspacesilent, 6"
-      "$mainMod CTRL, code:16, move silently to workspace 7, movetoworkspacesilent, 7"
-      "$mainMod CTRL, code:17, move silently to workspace 8, movetoworkspacesilent, 8"
-      "$mainMod CTRL, code:18, move silently to workspace 9, movetoworkspacesilent, 9"
-      "$mainMod CTRL, code:19, move silently to workspace 10, movetoworkspacesilent, 10"
-      "$mainMod CTRL, bracketleft, move silently to previous workspace, movetoworkspacesilent, -1"
-      "$mainMod CTRL, bracketright, move silently to next workspace, movetoworkspacesilent, +1"
-      "$mainMod, mouse_down, next workspace, workspace, e+1"
-      "$mainMod, mouse_up, previous workspace, workspace, e-1"
-      "$mainMod, period, next workspace, workspace, e+1"
-      "$mainMod, comma, previous workspace, workspace, e-1"
-    ];
-    bind = [
-      "$mainMod, R, exec, killall -SIGUSR1 gpu-screen-recorder"
-      ", xf86Launch1, exec, rog-control-center"
-      ", xf86Launch3, exec, asusctl led-mode -n"
-      ", xf86Launch4, exec, asusctl profile -n"
-      ", xf86TouchpadToggle, exec, $scriptsDir/TouchPad.sh"
-      "$mainMod, F6, exec, $scriptsDir/ScreenShot.sh --now"
-      "$mainMod SHIFT, F6, exec, $scriptsDir/ScreenShot.sh --area"
-      "$mainMod CTRL, F6, exec, $scriptsDir/ScreenShot.sh --in5"
-      "$mainMod ALT, F6, exec, $scriptsDir/ScreenShot.sh --in10"
-      "ALT, F6, exec, $scriptsDir/ScreenShot.sh --active"
-    ];
-    bindlnd = [
-      "ALT_L, SHIFT_L, switch keyboard layout globally, exec, nix-SwitchKeyboardLayout"
-    ];
-    bindeld = [
-      ", xf86audioraisevolume, volume up, exec, noctalia msg volume-up"
-      ", xf86audiolowervolume, volume down, exec, noctalia msg volume-down"
-    ];
-    bindld = [
-      ", xf86AudioMicMute, toggle mic mute, exec, noctalia msg mic-mute"
-      ", xf86audiomute, toggle mute, exec, noctalia msg volume-mute"
-      ", xf86AudioPlay, play, exec, noctalia msg media toggle"
-      ", xf86AudioNext, next track, exec, noctalia msg media next"
-      ", xf86AudioPrev, previous track, exec, noctalia msg media previous"
-      ", xf86audiostop, stop, exec, nix-MediaCtrl --stop"
-    ];
-    binded = [
-      "$mainMod SHIFT, left, resize left (-50), resizeactive, -50 0"
-      "$mainMod SHIFT, right, resize right (+50), resizeactive, 50 0"
-      "$mainMod SHIFT, up, resize up (-50), resizeactive, 0 -50"
-      "$mainMod SHIFT, down, resize down (+50), resizeactive, 0 50"
-    ];
-    bindmd = [
-      "$mainMod, mouse:272, move window, movewindow"
-      "$mainMod, mouse:273, resize window, resizewindow"
-    ];
-    binde = [
-      ", xf86KbdBrightnessDown, exec, $scriptsDir/BrightnessKbd.sh --dec"
-      ", xf86KbdBrightnessUp, exec, $scriptsDir/BrightnessKbd.sh --inc"
-      ", xf86MonBrightnessDown, exec, $scriptsDir/Brightness.sh --dec"
-      ", xf86MonBrightnessUp, exec, $scriptsDir/Brightness.sh --inc"
-    ];
-  };
+  wayland.windowManager.hyprland.extraLuaFiles."10-keybinds".content = ''
+
+-- Keybindings for Hyprland 0.57+
+local mainMod = "SUPER"
+local term = term or "kitty"
+local files = files or "thunar"
+local scriptsDir = scriptsDir or (os.getenv("HOME") .. "/.config/hypr/scripts")
+
+-- Application shortcuts & controls
+hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("noctalia msg panel-toggle launcher"), { desc = "all launcher" })
+hl.bind(mainMod .. " + B", hl.dsp.exec_cmd('xdg-open "https://"'), { desc = "open default browser" })
+hl.bind(mainMod .. " + A", hl.dsp.exec_cmd("nix-OverviewToggle"), { desc = "desktop overview" })
+hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd(term), { desc = "Open terminal" })
+hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(files), { desc = "file manager" })
+hl.bind(mainMod .. " + H", hl.dsp.exec_cmd("noctalia msg panel-toggle kenn/keybind-cheatsheet:cheatsheet"), { desc = "keybind cheatsheet" })
+hl.bind(mainMod .. " + ALT + E", hl.dsp.exec_cmd('noctalia msg panel-toggle launcher "/emo "'), { desc = "emoji picker" })
+hl.bind(mainMod .. " + S", hl.dsp.exec_cmd("nix-RofiSearch"), { desc = "web search" })
+hl.bind(mainMod .. " + CTRL + S", hl.dsp.exec_cmd("noctalia msg window-switcher"), { desc = "window switcher" })
+hl.bind(mainMod .. " + SHIFT + G", hl.dsp.exec_cmd(scriptsDir .. "/GameMode.sh"), { desc = "toggle game mode" })
+hl.bind(mainMod .. " + ALT + L", hl.dsp.exec_cmd(scriptsDir .. "/ChangeLayout.sh"), { desc = "toggle master/dwindle layout" })
+hl.bind(mainMod .. " + ALT + V", hl.dsp.exec_cmd("noctalia msg panel-toggle clipboard"), { desc = "clipboard manager" })
+hl.bind(mainMod .. " + CTRL + R", hl.dsp.exec_cmd("noctalia msg settings-toggle theme"), { desc = "noctalia theme settings" })
+hl.bind(mainMod .. " + SHIFT + F", hl.dsp.window.fullscreen(), { desc = "fullscreen" })
+hl.bind(mainMod .. " + CTRL + F", hl.dsp.window.fullscreen(1), { desc = "maximize window" })
+hl.bind(mainMod .. " + SPACE", hl.dsp.window.float({ action = "toggle" }), { desc = "Float current window" })
+hl.bind(mainMod .. " + ALT + SPACE", hl.dsp.exec_cmd("hyprctl dispatch workspaceopt allfloat"), { desc = "Float all windows" })
+hl.bind(mainMod .. " + SHIFT + Return", hl.dsp.exec_cmd("pypr toggle term"), { desc = "DropDown terminal" })
+
+hl.bind(mainMod .. " + ALT + mouse_down", hl.dsp.exec_cmd([[hyprctl keyword cursor:zoom_factor "$(hyprctl getoption cursor:zoom_factor | awk 'NR==1 {factor = $2; if (factor < 1) {factor = 1}; print factor * 2.0}')"]]), { desc = "zoom in" })
+hl.bind(mainMod .. " + ALT + mouse_up", hl.dsp.exec_cmd([[hyprctl keyword cursor:zoom_factor "$(hyprctl getoption cursor:zoom_factor | awk 'NR==1 {factor = $2; if (factor < 1) {factor = 1}; print factor / 2.0}')"]]), { desc = "zoom out" })
+
+hl.bind(mainMod .. " + CTRL + ALT + B", hl.dsp.exec_cmd("noctalia msg bar-toggle"), { desc = "toggle bar" })
+hl.bind(mainMod .. " + SHIFT + M", hl.dsp.exec_cmd("pypr toggle music"), { desc = "online music" })
+hl.bind(mainMod .. " + SHIFT + B", hl.dsp.exec_cmd("pypr toggle bitwarden"), { desc = "bitwarden scratchpad" })
+hl.bind(mainMod .. " + W", hl.dsp.exec_cmd("noctalia msg panel-toggle wallpaper"), { desc = "select wallpaper" })
+hl.bind("CTRL + ALT + W", hl.dsp.exec_cmd("noctalia msg wallpaper-random"), { desc = "random wallpaper" })
+hl.bind(mainMod .. " + CTRL + O", hl.dsp.exec_cmd("hyprctl setprop active opaque toggle"), { desc = "toggle active window opacity" })
+hl.bind(mainMod .. " + SHIFT + A", hl.dsp.exec_cmd(scriptsDir .. "/Animations.sh"), { desc = "animations menu" })
+hl.bind(mainMod .. " + SHIFT + O", hl.dsp.exec_cmd("nix-ZshChangeTheme"), { desc = "change oh-my-zsh theme" })
+hl.bind(mainMod .. " + ALT + C", hl.dsp.exec_cmd('noctalia msg panel-toggle launcher "/calc "'), { desc = "calculator" })
+
+-- Move workspace to monitor
+hl.bind(mainMod .. " + CTRL + F9", hl.dsp.exec_cmd("hyprctl dispatch movecurrentworkspacetomonitor l"), { desc = "move workspace to left monitor" })
+hl.bind(mainMod .. " + CTRL + F10", hl.dsp.exec_cmd("hyprctl dispatch movecurrentworkspacetomonitor r"), { desc = "move workspace to right monitor" })
+hl.bind(mainMod .. " + CTRL + F11", hl.dsp.exec_cmd("hyprctl dispatch movecurrentworkspacetomonitor u"), { desc = "move workspace to up monitor" })
+hl.bind(mainMod .. " + CTRL + F12", hl.dsp.exec_cmd("hyprctl dispatch movecurrentworkspacetomonitor d"), { desc = "move workspace to down monitor" })
+
+hl.bind("CTRL + ALT + Delete", hl.dsp.exit(), { desc = "exit Hyprland" })
+hl.bind(mainMod .. " + Q", hl.dsp.window.close(), { desc = "close active window" })
+hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.exec_cmd("nix-KillActiveProcess"), { desc = "Terminate active process" })
+hl.bind("CTRL + ALT + L", hl.dsp.exec_cmd("noctalia msg session lock"), { desc = "lock screen" })
+hl.bind("CTRL + ALT + P", hl.dsp.exec_cmd("noctalia msg panel-toggle session"), { desc = "powermenu" })
+hl.bind(mainMod .. " + SHIFT + N", hl.dsp.exec_cmd("noctalia msg panel-toggle control-center notifications"), { desc = "notification panel" })
+hl.bind(mainMod .. " + SHIFT + E", hl.dsp.exec_cmd("noctalia msg panel-toggle control-center"), { desc = "Quick settings menu" })
+
+-- Layout controls
+hl.bind(mainMod .. " + CTRL + D", hl.dsp.layout("removemaster"), { desc = "remove master" })
+hl.bind(mainMod .. " + I", hl.dsp.layout("addmaster"), { desc = "add master" })
+hl.bind(mainMod .. " + CTRL + Return", hl.dsp.layout("swapwithmaster"), { desc = "swap with master" })
+hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("hyprctl dispatch splitratio 0.3"), { desc = "set split ratio 0.3" })
+
+-- Window focus and cycling
+hl.bind("ALT + Tab", hl.dsp.window.cycle_next(), { desc = "cycle next window" })
+hl.bind(mainMod .. " + left", hl.dsp.focus({ direction = "l" }), { desc = "focus left" })
+hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "r" }), { desc = "focus right" })
+hl.bind(mainMod .. " + up", hl.dsp.focus({ direction = "u" }), { desc = "focus up" })
+hl.bind(mainMod .. " + down", hl.dsp.focus({ direction = "d" }), { desc = "focus down" })
+
+-- Move window
+hl.bind(mainMod .. " + CTRL + left", hl.dsp.window.move({ direction = "l" }), { desc = "move window left" })
+hl.bind(mainMod .. " + CTRL + right", hl.dsp.window.move({ direction = "r" }), { desc = "move window right" })
+hl.bind(mainMod .. " + CTRL + up", hl.dsp.window.move({ direction = "u" }), { desc = "move window up" })
+hl.bind(mainMod .. " + CTRL + down", hl.dsp.window.move({ direction = "d" }), { desc = "move window down" })
+
+-- Swap window
+hl.bind(mainMod .. " + ALT + left", hl.dsp.window.swap({ direction = "l" }), { desc = "swap window left" })
+hl.bind(mainMod .. " + ALT + right", hl.dsp.window.swap({ direction = "r" }), { desc = "swap window right" })
+hl.bind(mainMod .. " + ALT + up", hl.dsp.window.swap({ direction = "u" }), { desc = "swap window up" })
+hl.bind(mainMod .. " + ALT + down", hl.dsp.window.swap({ direction = "d" }), { desc = "swap window down" })
+
+-- Resize active window
+hl.bind(mainMod .. " + SHIFT + left", hl.dsp.window.resize({ x = -50, y = 0, relative = true }), { repeating = true, desc = "resize left (-50)" })
+hl.bind(mainMod .. " + SHIFT + right", hl.dsp.window.resize({ x = 50, y = 0, relative = true }), { repeating = true, desc = "resize right (+50)" })
+hl.bind(mainMod .. " + SHIFT + up", hl.dsp.window.resize({ x = 0, y = -50, relative = true }), { repeating = true, desc = "resize up (-50)" })
+hl.bind(mainMod .. " + SHIFT + down", hl.dsp.window.resize({ x = 0, y = 50, relative = true }), { repeating = true, desc = "resize down (+50)" })
+
+-- Groups
+hl.bind(mainMod .. " + G", hl.dsp.group.toggle(), { desc = "toggle group" })
+hl.bind(mainMod .. " + Tab", hl.dsp.group.next(), { desc = "Change Group Forward" })
+hl.bind(mainMod .. " + CTRL + Tab", hl.dsp.group.next(), { desc = "change active in group" })
+hl.bind(mainMod .. " + SHIFT + Tab", hl.dsp.group.prev(), { desc = "Change Group Back" })
+hl.bind(mainMod .. " + CTRL + K", hl.dsp.group.move_window({ direction = "l" }), { desc = "Move left into group" })
+hl.bind(mainMod .. " + CTRL + L", hl.dsp.group.move_window({ direction = "r" }), { desc = "Move Right into group" })
+hl.bind(mainMod .. " + CTRL + H", hl.dsp.exec_cmd("hyprctl dispatch moveoutofgroup"), { desc = "Move active out of group" })
+
+-- Special workspace
+hl.bind(mainMod .. " + SHIFT + U", hl.dsp.window.move({ workspace = "special" }), { desc = "move to special workspace" })
+hl.bind(mainMod .. " + U", hl.dsp.workspace.toggle_special(), { desc = "toggle special workspace" })
+
+-- Workspaces 1-10
+for i = 1, 10 do
+    local code = tostring(9 + i)
+    local ws = tostring(i)
+    hl.bind(mainMod .. " + code:" .. code, hl.dsp.focus({ workspace = i }), { desc = "workspace " .. ws })
+    hl.bind(mainMod .. " + SHIFT + code:" .. code, hl.dsp.window.move({ workspace = i }), { desc = "move to workspace " .. ws })
+    hl.bind(mainMod .. " + CTRL + code:" .. code, hl.dsp.window.move({ workspace = i, silent = true }), { desc = "move silently to workspace " .. ws })
+end
+
+-- Workspace navigation
+hl.bind(mainMod .. " + SHIFT + bracketleft", hl.dsp.window.move({ workspace = "-1" }), { desc = "move to previous workspace" })
+hl.bind(mainMod .. " + SHIFT + bracketright", hl.dsp.window.move({ workspace = "+1" }), { desc = "move to next workspace" })
+hl.bind(mainMod .. " + CTRL + bracketleft", hl.dsp.window.move({ workspace = "-1", silent = true }), { desc = "move silently to previous workspace" })
+hl.bind(mainMod .. " + CTRL + bracketright", hl.dsp.window.move({ workspace = "+1", silent = true }), { desc = "move silently to next workspace" })
+hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }), { desc = "next workspace" })
+hl.bind(mainMod .. " + mouse_up", hl.dsp.focus({ workspace = "e-1" }), { desc = "previous workspace" })
+hl.bind(mainMod .. " + period", hl.dsp.focus({ workspace = "e+1" }), { desc = "next workspace" })
+hl.bind(mainMod .. " + comma", hl.dsp.focus({ workspace = "e-1" }), { desc = "previous workspace" })
+
+-- Screenshots
+hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd("noctalia msg screenshot-fullscreen"), { desc = "screenshot fullscreen" })
+hl.bind(mainMod .. " + SHIFT + Print", hl.dsp.exec_cmd("noctalia msg screenshot-region"), { desc = "screenshot (region)" })
+hl.bind(mainMod .. " + CTRL + Print", hl.dsp.exec_cmd("sleep 5 && noctalia msg screenshot-fullscreen"), { desc = "screenshot in 5s" })
+hl.bind(mainMod .. " + CTRL + SHIFT + Print", hl.dsp.exec_cmd("sleep 10 && noctalia msg screenshot-fullscreen"), { desc = "screenshot in 10s" })
+hl.bind("ALT + Print", hl.dsp.exec_cmd("noctalia msg screenshot-window"), { desc = "screenshot active window" })
+hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("noctalia msg screenshot-region --annotate"), { desc = "screenshot (annotate)" })
+hl.bind(mainMod .. " + ALT + Print", hl.dsp.exec_cmd("noctalia msg annotate"), { desc = "screen annotate" })
+hl.bind(mainMod .. " + F6", hl.dsp.exec_cmd("noctalia msg screenshot-fullscreen"))
+hl.bind(mainMod .. " + SHIFT + F6", hl.dsp.exec_cmd("noctalia msg screenshot-region"))
+hl.bind(mainMod .. " + CTRL + F6", hl.dsp.exec_cmd("sleep 5 && noctalia msg screenshot-fullscreen"))
+hl.bind(mainMod .. " + ALT + F6", hl.dsp.exec_cmd("noctalia msg screenshot-region --annotate"))
+hl.bind("ALT + F6", hl.dsp.exec_cmd("noctalia msg screenshot-window"))
+
+-- Hardware & function keys
+hl.bind(mainMod .. " + R", hl.dsp.exec_cmd("killall -SIGUSR1 gpu-screen-recorder"))
+hl.bind("xf86Launch1", hl.dsp.exec_cmd("rog-control-center"))
+hl.bind("xf86Launch3", hl.dsp.exec_cmd("asusctl led-mode -n"))
+hl.bind("xf86Launch4", hl.dsp.exec_cmd("asusctl profile -n"))
+hl.bind("xf86TouchpadToggle", hl.dsp.exec_cmd(scriptsDir .. "/TouchPad.sh"))
+
+-- Global layout switch
+hl.bind("ALT_L + SHIFT_L", hl.dsp.exec_cmd("noctalia msg keyboard-layout-cycle"), { locked = true, non_consuming = true, desc = "switch keyboard layout globally" })
+
+-- Audio controls
+hl.bind("xf86audioraisevolume", hl.dsp.exec_cmd("noctalia msg volume-up"), { locked = true, repeating = true, desc = "volume up" })
+hl.bind("xf86audiolowervolume", hl.dsp.exec_cmd("noctalia msg volume-down"), { locked = true, repeating = true, desc = "volume down" })
+hl.bind("xf86AudioMicMute", hl.dsp.exec_cmd("noctalia msg mic-mute"), { locked = true, desc = "toggle mic mute" })
+hl.bind("xf86audiomute", hl.dsp.exec_cmd("noctalia msg volume-mute"), { locked = true, desc = "toggle mute" })
+hl.bind("xf86AudioPlay", hl.dsp.exec_cmd("noctalia msg media toggle"), { locked = true, desc = "play" })
+hl.bind("xf86AudioNext", hl.dsp.exec_cmd("noctalia msg media next"), { locked = true, desc = "next track" })
+hl.bind("xf86AudioPrev", hl.dsp.exec_cmd("noctalia msg media previous"), { locked = true, desc = "previous track" })
+hl.bind("xf86audiostop", hl.dsp.exec_cmd("noctalia msg media stop"), { locked = true, desc = "stop" })
+
+-- Brightness
+hl.bind("xf86KbdBrightnessDown", hl.dsp.exec_cmd("noctalia msg keyboard-backlight-down"), { repeating = true })
+hl.bind("xf86KbdBrightnessUp", hl.dsp.exec_cmd("noctalia msg keyboard-backlight-up"), { repeating = true })
+hl.bind("xf86MonBrightnessDown", hl.dsp.exec_cmd("noctalia msg brightness-down"), { repeating = true })
+hl.bind("xf86MonBrightnessUp", hl.dsp.exec_cmd("noctalia msg brightness-up"), { repeating = true })
+
+-- Mouse dragging
+hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { drag = true, desc = "move window" })
+hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { drag = true, desc = "resize window" })
+
+  '';
 }

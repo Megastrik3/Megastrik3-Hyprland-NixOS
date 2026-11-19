@@ -9,7 +9,7 @@
     ];
 
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "sd_mod" ];
-  boot.initrd.kernelModules = [ ];
+  boot.initrd.kernelModules = [ "nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
@@ -24,21 +24,6 @@
       fsType = "vfat";
       options = [ "fmask=0077" "dmask=0077" ];
     };
-
-    fileSystems."/home/${username}/SSD_Drive" =
-      {
-        device = "/dev/disk/by-uuid/2453FDDB351A8F72";
-        fsType = "ntfs";
-        options = [
-          "users"
-          "nofail"
-          "exec"
-          "uid=1000" # Your user ID (run 'id -u' to find it)
-          "gid=100"  # Your group ID (run 'id -g' or use 'users' for common group)
-          "fmask=0022" # File permissions (example: full read/write for owner)
-          "dmask=0022" # Directory permissions
-        ];
-      };
 
   swapDevices =
     [ { device = "/dev/disk/by-uuid/ccfbd7b2-86a6-476f-a0d7-21e7d1916732"; }

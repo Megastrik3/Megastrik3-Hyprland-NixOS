@@ -7,7 +7,7 @@ let
     dontWrapQtApps = true;
     src = pkgs.fetchzip {
       url = "https://github.com/L4ki/Slot-Plasma-Themes/archive/master.tar.gz";
-      hash = "sha256-xTFKvZfYzOujTMKObJ4UZEi1n0fjvP4BSmAJmklw8Us=";
+      hash = "sha256-jIFjaqO/MpdAYLt+JQOZe4EOQaCW56QqKKh/h9vUdbo=";
     };
     nativeBuildInputs = [ pkgs.gtk3 ];
     propagatedBuildInputs = [

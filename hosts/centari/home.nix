@@ -6,6 +6,7 @@
     ../../modules/home-manager/programs/git.nix
     ../../modules/home-manager/programs/zsh.nix
     ../../modules/home-manager/programs/kitty.nix
+    ../../modules/home-manager/programs/neovim.nix
     ../../modules/home-manager/programs/btop.nix
     ../../modules/home-manager/programs/obs-studio.nix
     ../../modules/home-manager/programs/fastfetch.nix

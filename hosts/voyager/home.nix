@@ -4,11 +4,14 @@
   imports = [
     ../../modules/home-manager/programs/common-apps.nix
     ../../modules/home-manager/programs/git.nix
+    ../../modules/home-manager/programs/zsh.nix
     ../../modules/home-manager/programs/kitty.nix
+    ../../modules/home-manager/programs/neovim.nix
     ../../modules/home-manager/programs/btop.nix
     ../../modules/home-manager/programs/obs-studio.nix
     ../../modules/home-manager/programs/fastfetch.nix
     ../../modules/home-manager/programs/gtk.nix
+    ../../modules/home-manager/programs/qt.nix
     ../../modules/home-manager/programs/noctalia.nix
     ../../modules/home-manager/programs/cava-config.nix
     ../../modules/home-manager/programs/hypr-settings.nix
@@ -29,6 +32,10 @@
 
   home.username = "${username}";
   home.homeDirectory = "/home/${username}";
+
+  home.sessionVariables = {
+    QT_QPA_PLATFORMTHEME = "qt6ct";
+  };
 
   xdg.userDirs = {
     enable = true;

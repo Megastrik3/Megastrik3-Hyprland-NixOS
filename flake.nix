@@ -28,6 +28,8 @@
     # nixpkgs-r2modman.url = "github:nixos/nixpkgs/1cbe6ab531cb26bfd78a9783f71404d38846ed8c";
     # Pinned nixpkgs for Zotero due to upstream nixpkgs issue #568692 (broken build with firefox-esr-153)
     nixpkgs-zotero.url = "github:nixos/nixpkgs/4975466d324710c576dc11ad614684e6bd8cad8e";
+    # Pinned nixpkgs for working Zen kernel 7.2.15-zen1 (Generation 288)
+    nixpkgs-kernel.url = "github:nixos/nixpkgs/f9a75f41be3a74eab55d3a7679d34ad6cc0da977";
   };
 
   outputs =

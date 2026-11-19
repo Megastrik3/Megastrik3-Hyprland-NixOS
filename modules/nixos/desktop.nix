@@ -40,6 +40,7 @@ in
     hyprlock.enable = true;
 
     coolercontrol.enable = true;
+    openlogi.enable = true;
     gpu-screen-recorder.enable = true;
     nix-ld.enable = true;
     bcc.enable = true;
@@ -130,5 +131,18 @@ in
     QT_STYLE_OVERRIDE = null;
     QT_QPA_PLATFORMTHEME = "qt6ct";
     QML_IMPORT_PATH = "${pkgs.hyprland-qt-support}/lib/qt-6/qml";
+  };
+
+  # OpenLogi background agent
+  systemd.user.services.openlogi-agent = {
+    description = "OpenLogi background agent";
+    wantedBy = [ "graphical-session.target" ];
+    after = [ "graphical-session.target" ];
+    partOf = [ "graphical-session.target" ];
+    serviceConfig = {
+      ExecStart = "${pkgs.openlogi}/bin/openlogi-agent";
+      Restart = "on-failure";
+      RestartSec = 5;
+    };
   };
 }

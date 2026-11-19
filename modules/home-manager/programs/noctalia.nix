@@ -532,7 +532,11 @@
       plugin_settings = { };
       plugins = {
         auto_update = "all";
-        enabled = [ ];
+        enabled = [
+          "noctalia/screen_recorder"
+          "detluck/performance-plus"
+          "kenn/keybind-cheatsheet"
+        ];
         source = [
           {
             enabled = true;

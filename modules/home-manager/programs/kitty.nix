@@ -7,6 +7,10 @@
     #themeFile = "Obsidian";
     font.name = "FantasqueSansM Nerd Font Mono Bold";
     extraConfig = ''
+      remember_window_size no
+      initial_window_width 1000
+      initial_window_height 650
+
       background_opacity 0.9
       dynamic_background_opacity 1
       confirm_os_window_close 0

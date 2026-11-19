@@ -9,11 +9,6 @@
       configPath = ".mozilla/firefox";
     };
     git.enable = true;
-    neovim = {
-      enable = true;
-      withRuby = false;
-      withPython3 = true;
-    };
     obsidian.enable = true;
     mpv.enable = true;
     rofi.enable = true;

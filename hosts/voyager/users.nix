@@ -19,6 +19,9 @@ in
         "networkmanager"
         "wheel"
         "libvirtd"
+        "kvm"
+        "qemu"
+        "libvirt"
         "scanner"
         "lp"
         "video" 
@@ -39,6 +42,7 @@ in
   }; 
   
   environment.shells = with pkgs; [ zsh ];
-  environment.systemPackages = with pkgs; [ lsd fzf ]; 
-  
+  environment.systemPackages = with pkgs; [ lsd fzf ];
+  programs.zsh.enable = true;
+
 }

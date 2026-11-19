@@ -19,6 +19,7 @@ in
     ../../modules/nixos/vm-guest-services.nix
     ../../modules/nixos/local-hardware-clock.nix
     ../../modules/nixos/owncloud.nix
+    inputs.grub2-themes.nixosModules.default
   ];
 
   # Host Identification & Networking
@@ -46,11 +47,26 @@ in
     };
 
     loader = {
-      systemd-boot.enable = true;
+      systemd-boot.enable = false;
       efi = {
         canTouchEfiVariables = true;
       };
       timeout = 5;
+      grub2-theme = {
+        enable = true;
+        theme = "tela";
+        icon = "color";
+        screen = "1080p";
+      };
+      grub = {
+        enable = true;
+        devices = [ "nodev" ];
+        efiSupport = true;
+        useOSProber = true;
+        memtest86.enable = true;
+        extraGrubInstallArgs = [ "--bootloader-id=${host}" ];
+        configurationName = "${host}";
+      };
     };
 
     tmp = {
@@ -85,6 +101,13 @@ in
   vm.guest-services.enable = false;
   local.hardware-clock.enable = true;
 
+  # Host-Specific Services
+  services.code-server.enable = true;
+  services.owncloud-sync = {
+    enable = true;
+    offlineSyncDir = "%h/SSD_Drive/OU_Fall_2026/Course_Data";
+  };
+
   # Syncthing configuration (disabled)
   # services.syncthing = {
   #   enable = false;
@@ -114,9 +137,11 @@ in
 
   programs.solaar.enable = true;
 
-  # Logitech Support
+  # Logitech & Xbox Controller Support
   hardware = {
     logitech.wireless.enable = true;
+    xone.enable = true;
+    xpad-noone.enable = false;
     opentabletdriver = {
       enable = true;
       daemon.enable = true;
@@ -140,7 +165,14 @@ in
       dockerCompat = false;
       defaultNetwork.settings.dns_enabled = false;
     };
+    spiceUSBRedirection.enable = true;
   };
+
+  # Permitted Insecure Packages Workaround
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-39.8.10"
+    "pnpm-10.29.2"
+  ];
 
   system.stateVersion = "25.05";
 }

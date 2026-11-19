@@ -30,13 +30,19 @@ let
       cudaSupport = false;
     };
 
-    # Workaround for upstream nixpkgs 21.1.1 davinci-resolve source hash mismatch
-    davinci-resolve = prev.davinci-resolve.override {
-      runCommandLocal = name: env: text:
-        prev.runCommandLocal name (env // {
-          outputHash = "sha256-hU27MRgjuBv201uR4tdI1P4ay8dCKyhNBtxwZ9CajJM=";
-        }) text;
-    };
+    # Pin linuxPackages_zen to working 7.2.15-zen1 until upstream nixpkgs fixes 7.3.4-zen panics
+    linuxPackages_zen =
+      if inputs != null && inputs ? nixpkgs-kernel then
+        let
+          system = prev.stdenv.hostPlatform.system or prev.system;
+          kernelPkgs = import inputs.nixpkgs-kernel {
+            inherit system;
+            config.allowUnfree = true;
+          };
+        in
+        kernelPkgs.linuxPackages_zen
+      else
+        prev.linuxPackages_zen;
 
     # Workaround for upstream nixpkgs issue #568692: zotero 10.0.2 fails to build with firefox-esr-153
     # Pin zotero to the last known working nixpkgs commit where it uses firefox-esr-140.
