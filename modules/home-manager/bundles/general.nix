@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, host ? "", ... }:
 
 {
   home.packages = with pkgs; [
@@ -17,7 +17,6 @@
     zotero
     termius
     darktable
-    davinci-resolve
     pear-desktop
     gimp
     prismlauncher
@@ -28,12 +27,14 @@
     hunspellDicts.en_US
     hunspell
     texliveSmall
-    gpu-screen-recorder
     uv
     wev
     adwaita-fonts
     cura-appimage
     rpi-imager
     ddcutil
+  ] ++ lib.optionals (host != "voyager") [
+    davinci-resolve
+    gpu-screen-recorder
   ];
 }

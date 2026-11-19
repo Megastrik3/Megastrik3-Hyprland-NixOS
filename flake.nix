@@ -76,7 +76,7 @@
           home-manager.backupFileExtension = "hm-bak";
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.extraSpecialArgs = { inherit inputs username; };
+          home-manager.extraSpecialArgs = { inherit inputs username host; };
           home-manager.users."${username}" = ./hosts/${host}/home.nix;
           }
 

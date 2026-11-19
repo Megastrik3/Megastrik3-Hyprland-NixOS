@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, host ? "", ... }:
 {
   wayland.windowManager.hyprland.extraLuaFiles."20-startup".content = ''
     -- Autostart processes for Hyprland 0.57+
@@ -14,7 +14,9 @@
         hl.exec_cmd("sleep 3 && solaar --battery-icons solaar -w hide")
         hl.exec_cmd("sleep 3 && trayscale --hide-window")
         hl.exec_cmd("sleep 3 && vesktop -m")
+  '' + lib.optionalString (host != "voyager") ''
         hl.exec_cmd("sleep 3 && steam -silent")
+  '' + ''
     end)
   '';
 }

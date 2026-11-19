@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, host ? "", ... }:
 
 {
   home.packages = with pkgs; [
@@ -8,8 +8,9 @@
     pamixer
     pavucontrol
     playerctl
-    gpu-screen-recorder-gtk
     cliphist
     slurp
+  ] ++ lib.optionals (host != "voyager") [
+    gpu-screen-recorder-gtk
   ];
 }

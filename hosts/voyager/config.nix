@@ -135,7 +135,18 @@ in
   # Host Keyboard Console Layout
   console.keyMap = "${keyboardLayout}";
 
-  programs.solaar.enable = true;
+  programs = {
+    solaar.enable = true;
+
+    # Host-specific program exclusions (overriding modules/nixos/desktop.nix)
+    gpu-screen-recorder.enable = lib.mkForce false;
+    steam = {
+      enable = lib.mkForce false;
+      gamescopeSession.enable = lib.mkForce false;
+      remotePlay.openFirewall = lib.mkForce false;
+      dedicatedServer.openFirewall = lib.mkForce false;
+    };
+  };
 
   # Logitech & Xbox Controller Support
   hardware = {
